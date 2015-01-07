@@ -1,0 +1,28 @@
+{
+  "name": "renasar-tftp",
+  "version": "0.0.1",
+  "description": "tftp server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renasar/renasar-tftp.git"
+  },
+  "keywords": [
+    "tftp"
+  ],
+  "author": "",
+  "license": "Proprietary",
+  "bugs": {
+    "url": "https://github.com/renasar/renasar-tftp/issues"
+  },
+  "homepage": "https://github.com/renasar/renasar-tftp",
+  "dependencies":{
+    "di": "git+ssh://git@github.com/renasar/di.js.git", 
+    "lodash": "^2.4.1",
+    "tftp": "^0.1.0",
+    "renasar-core":"git+ssh://git@github.com:renasar/renasar-core.git" 
+  }
+}
