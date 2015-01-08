@@ -1,0 +1,7 @@
+{
+"amqp": "amqp://localhost",
+"port": 514,
+"verbose": true,
+"color": true
+}
+
