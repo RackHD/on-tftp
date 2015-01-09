@@ -4,36 +4,31 @@
 "use strict";
 
 var di = require('di');
-  
+
 module.exports = Runner;
+
 di.annotate(Runner, new di.Provide('Tftp'));
 di.annotate(Runner, new di.Inject(
-   'Tftp.Server',
-   'Services.Messenger',
-   'Q'
-  )
+        'Tftp.Server',
+        'Services.Messenger'
+    )
 );
 
-function Runner(server,messenger,Q) {
-  function start(){
-    return messenger.start()
-    .then(function(){
-      server.start();
-    });         
-  }
-
-  function stop(){
-    try{
-      server.stop();
-      messenger.stop();
-    } catch (e) {
-      return Q.reject(e);
+function Runner (server, messenger) {
+    function start(){
+        return messenger.start()
+            .then(function () {
+                server.start();
+            });
     }
-    return Q.resolve()
-  }
 
-  return {
-    start: start,
-    stop: stop
-  };
+    function stop () {
+        server.stop();
+        messenger.stop();
+    }
+
+    return {
+        start: start,
+        stop: stop
+    };
 }
