@@ -3,5 +3,12 @@
     "color": true,
     "server": "10.1.1.1",
     "tftproot": "./static/tftp",
-    "tftpport": 69
+    "tftpport": 69,
+    "mongo": {
+        "host": "localhost",
+        "port": 27017,
+        "database": "pxe",
+        "user": "",
+        "password": ""
+    }
 }
