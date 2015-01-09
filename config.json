@@ -1,13 +1,5 @@
 {
     "amqp": "amqp://localhost",
-    "mongo": {
-        "host": "localhost",
-        "port": 27017,
-        "database": "pxe",
-        "user": "",
-        "password": ""
-    },
-    "verbose": false,
     "color": true,
     "server": "10.1.1.1",
     "tftproot": "./static/tftp",
