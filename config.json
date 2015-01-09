@@ -1,7 +1,10 @@
 {
-"amqp": "amqp://localhost",
-"port": 514,
-"verbose": true,
-"color": true
+    "amqp": "amqp://localhost",
+    "port": 514,
+    "verbose": true,
+    "color": true,
+    "server": "10.1.1.1",
+    "tftproot": "./static/tftp",
+    "tftpport": 69
 }
 
