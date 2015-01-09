@@ -19,10 +19,10 @@
     "url": "https://github.com/renasar/renasar-tftp/issues"
   },
   "homepage": "https://github.com/renasar/renasar-tftp",
-  "dependencies":{
-    "di": "git+ssh://git@github.com/renasar/di.js.git", 
+  "dependencies": {
+    "di": "git+ssh://git@github.com/renasar/di.js.git",
     "lodash": "^2.4.1",
-    "tftp": "^0.1.0",
-    "renasar-core":"git+ssh://git@github.com:renasar/renasar-core.git" 
+    "renasar-core": "git+ssh://git@github.com:renasar/renasar-core.git",
+    "tftp": "^0.1.0"
   }
 }
