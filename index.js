@@ -16,21 +16,21 @@ var di = require('di'),
 
 tftp.start()
 .catch(function(err) {
-  console.error('Failure starting TFTP service' + err.stack);
-  process.nextTick(function(){
-    process.exit(1);
-  });
+    console.error('Failure starting TFTP service' + err.stack);
+    process.nextTick(function(){
+        process.exit(1);
+    });
 });
 
 process.on('SIGINT',function() {
-  tftp.stop()
-  .catch(function(err) {
-    console.error('Failure cleaning up TFTP service' + err.stack);
-  })
-  .fin(function() {
-    process.nextTick(function(){
-      process.exit(1);
+    tftp.stop()
+    .catch(function(err) {
+        console.error('Failure cleaning up TFTP service' + err.stack);
+    })
+    .fin(function() {
+        process.nextTick(function(){
+            process.exit(1);
+        });
     });
-  });
 });
 
