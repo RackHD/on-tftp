@@ -12,11 +12,12 @@ var di = require('di'),
         require('./lib/server')
       ])
     ),
+    logger = injector.get('Logger').initialize('Tftp'),
     tftp = injector.get('Tftp');
 
 tftp.start()
 .catch(function(err) {
-    console.error('Failure starting TFTP service' + err.stack);
+    logger.error('Failure starting TFTP service' + err.stack);
     process.nextTick(function(){
         process.exit(1);
     });
@@ -25,7 +26,7 @@ tftp.start()
 process.on('SIGINT',function() {
     tftp.stop()
     .catch(function(err) {
-        console.error('Failure cleaning up TFTP service' + err.stack);
+        logger.error('Failure cleaning up TFTP service' + err.stack);
     })
     .fin(function() {
         process.nextTick(function(){
