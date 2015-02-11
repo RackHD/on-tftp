@@ -3,3 +3,4 @@ lib /var/renasar/renasar-tftp
 static /var/renasar/renasar-tftp
 index.js /var/renasar/renasar-tftp
 config.json /var/renasar/renasar-tftp
+commitstring.txt /var/renasar/renasar-tftp
