@@ -4,7 +4,7 @@
 
 var di = require('di'),
     _ = require('lodash'),
-    core = require('renasar-core')(di),
+    core = require('on-core')(di),
     injector = new di.Injector(
       _.flatten([
         core.injectables,

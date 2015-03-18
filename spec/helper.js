@@ -2,14 +2,14 @@
 
 var path = require('path');
 
-require('renasar-core/spec/helper');
+require('on-core/spec/helper');
 
 /**
 *  set up di for testing
 */
 var di = require('di');
 var _ = require('lodash');
-var core = require('renasar-core')(di);
+var core = require('on-core')(di);
 
 global.helper = {
 
