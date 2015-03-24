@@ -1,17 +1,16 @@
-Source: renasar-tftp
+Source: on-tftp
 Section: utilties
 Priority: optional
-Maintainer: Joe Heck <joseph.heck@renasar.com>
+Maintainer: Joe Heck <joseph.heck@emc.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.4
-Homepage: http://www.renasar.com/
 
-Package: renasar-tftp
+Package: on-tftp
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
  nodejs,
  nodejs-legacy,
  npm,
  mongodb
-Description: renasar-tftp
+Description: on-tftp
  Imaging Workflow tftp engine

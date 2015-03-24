@@ -1,6 +1,6 @@
-node_modules /var/renasar/renasar-tftp
-lib /var/renasar/renasar-tftp
-static /var/renasar/renasar-tftp
-index.js /var/renasar/renasar-tftp
-config.json /var/renasar/renasar-tftp
-commitstring.txt /var/renasar/renasar-tftp
+node_modules /var/renasar/on-tftp
+lib /var/renasar/on-tftp
+static /var/renasar/on-tftp
+index.js /var/renasar/on-tftp
+config.json /var/renasar/on-tftp
+commitstring.txt /var/renasar/on-tftp
