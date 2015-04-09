@@ -7,7 +7,6 @@ Renasar Tftp Server
 
     rm -rf node_modules
     npm install
-    npm run apidoc
 
 ## running
 
