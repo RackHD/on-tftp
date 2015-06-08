@@ -28,7 +28,7 @@ process.on('SIGINT',function() {
     .catch(function(err) {
         logger.error('Failure cleaning up TFTP service' + err.stack);
     })
-    .fin(function() {
+    .finally(function() {
         process.nextTick(function(){
             process.exit(1);
         });
