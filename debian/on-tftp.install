@@ -2,5 +2,4 @@ node_modules /var/renasar/on-tftp
 lib /var/renasar/on-tftp
 static /var/renasar/on-tftp
 index.js /var/renasar/on-tftp
-config.json /var/renasar/on-tftp
 commitstring.txt /var/renasar/on-tftp
