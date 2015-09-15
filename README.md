@@ -1,7 +1,7 @@
 on-tftp
 =======
 
-Renasar Tftp Server
+On Tftp Server
 
 ## installation
 
