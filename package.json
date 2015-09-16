@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@hwstashprd01.isus.emc.com:7999/onrack/on-tftp.git"
+    "url": "https://github.com/RackHD/on-tftp.git"
   },
   "keywords": [
     "tftp"
   ],
-  "license": "Proprietary",
+  "license": "Apache-2.0",
   "dependencies": {
-    "di": "git+ssh://git@hwstashprd01.isus.emc.com:7999/onrack/di.js.git",
+    "di": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/di.js.git",
     "lodash": "^2.4.1",
     "tftp": "git+https://github.com/RackHD/node-tftp.git",
-    "on-core": "git+ssh://git@hwstashprd01.isus.emc.com:7999/onrack/on-core.git"
+    "on-core": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/on-core.git"
   },
   "devDependencies": {
     "chai": "^2.0.0",
