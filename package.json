@@ -18,7 +18,7 @@
   "dependencies": {
     "di": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/di.js.git#release/0.6.0-branch",
     "lodash": "^2.4.1",
-    "tftp": "git+https://github.com/RackHD/node-tftp.git#release/0.6.0-branch",
+    "tftp": "^0.1.2",
     "on-core": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/on-core.git#release/0.6.0-branch"
   },
   "devDependencies": {
