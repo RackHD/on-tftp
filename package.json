@@ -16,10 +16,10 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "di": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/di.js.git",
+    "di": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/di.js.git#release/1.0.0-branch",
     "lodash": "^2.4.1",
     "tftp": "^0.1.2",
-    "on-core": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/on-core.git"
+    "on-core": "git+https://5f5fdee3b5f3bc054cece98ad854c3090043f3c0:x-oauth-basic@github.com/RackHD/on-core.git#release/1.0.0-branch"
   },
   "devDependencies": {
     "chai": "^2.0.0",
