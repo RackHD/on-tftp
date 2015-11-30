@@ -39,3 +39,6 @@ node_modules
 
 # IDE
 .idea
+
+# binary add-ins that we put in the repo for slimy convenience
+static/tftp
