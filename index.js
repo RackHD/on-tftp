@@ -17,7 +17,7 @@ var di = require('di'),
 
 tftp.start()
 .catch(function(err) {
-    logger.error('Failure starting TFTP service' + err.stack);
+    logger.critical('Failure starting TFTP service' + err.stack);
     process.nextTick(function(){
         process.exit(1);
     });
@@ -26,7 +26,7 @@ tftp.start()
 process.on('SIGINT',function() {
     tftp.stop()
     .catch(function(err) {
-        logger.error('Failure cleaning up TFTP service' + err.stack);
+        logger.critical('Failure cleaning up TFTP service' + err.stack);
     })
     .finally(function() {
         process.nextTick(function(){
@@ -34,4 +34,3 @@ process.on('SIGINT',function() {
         });
     });
 });
-
