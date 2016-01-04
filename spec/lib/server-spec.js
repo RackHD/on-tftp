@@ -6,7 +6,6 @@
 describe('tftp server tests', function () {
     var TftpServer;
     var server;
-    var LogListeningSpy;
 
     describe('initial values of properties', function(){
         before(function() {
