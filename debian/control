@@ -7,10 +7,5 @@ Standards-Version: 3.9.4
 
 Package: on-tftp
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends},
- nodejs,
- nodejs-legacy,
- npm,
- mongodb
-Description: on-tftp
- Imaging Workflow tftp engine
+Depends: ${shlibs:Depends}, ${misc:Depends}, nodejs, nodejs-legacy, npm, mongodb
+Description: RackHD Imaging workflow tftp engine
