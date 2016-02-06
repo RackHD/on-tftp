@@ -26,5 +26,4 @@ ADD https://bintray.com/artifact/download/rackhd/binary/ipxe/undionly.kpxe \
 EXPOSE 69
 EXPOSE 69/udp
 
-ENTRYPOINT [ "node" ]
-CMD [ "/RackHD/on-tftp/index.js" ]
+CMD [ "node", "/RackHD/on-tftp/index.js" ]
