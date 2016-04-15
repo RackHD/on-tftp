@@ -5,16 +5,19 @@
 
 describe('tftp server tests', function () {
     var TftpServer;
+    var FileLoader;
     var server;
 
-    describe('initial values of properties', function(){
-        before(function() {
-            helper.setupInjector([
-                require('../../lib/server.js'),
-            ]);
-            TftpServer = helper.injector.get('Tftp.Server');
-        });
+    before(function() {
+        helper.setupInjector([
+            require('../../lib/server.js'),
+        ]);
+        TftpServer = helper.injector.get('Tftp.Server');
+        FileLoader = helper.injector.get('FileLoader');
+        sinon.stub(FileLoader.prototype, 'getAll').resolves({});
+    });
 
+    describe('initial values of properties', function(){
         beforeEach(function() {
             if (server) {
                 server.stop();
@@ -22,7 +25,7 @@ describe('tftp server tests', function () {
             server = TftpServer.create();
             sinon.stub(server, 'listen');
             sinon.stub(server._tftp, 'close');
-            server.start();
+            return server.start();
         });
 
         // basic property tests
@@ -71,14 +74,52 @@ describe('tftp server tests', function () {
 
         // test function calls
         it('server calls listen function when started', function(){
-            //server.start();
             expect(server.listen).to.have.been.called;
         });
+
         it('server calls close function when stopped', function(){
             server.stop();
             expect(server._tftp.close).to.have.been.called;
         });
-        // not testing other function calls because that is just testing EventEmitter...
+    });
 
+    describe('requestWrapper', function() {
+        beforeEach(function() {
+            if (server) {
+                server.stop();
+            }
+            server = TftpServer.create();
+            sinon.stub(server, 'listen');
+            sinon.stub(server._tftp, 'close');
+            return server.start();
+        });
+
+        it('should favor templates over static files', function() {
+            var req = {
+                file: 'test',
+                stats: {}
+            };
+            var res = {
+                setSize: sinon.stub(),
+                end: sinon.stub()
+            };
+            server.templates = {
+                test: '<%=switchProfileUri%> <%=switchProfileErrorUri%>'
+            };
+
+            server.requestWrapper(req, res);
+
+            expect(res.end).to.have.been.calledOnce;
+            expect(res.setSize).to.have.been.calledOnce;
+
+            var rendered = res.end.firstCall.args[0];
+            var size = res.setSize.firstCall.args[0];
+
+            var expected = server.renderContext.switchProfileUri +
+                            ' ' +
+                            server.renderContext.switchProfileErrorUri;
+            expect(rendered).to.equal(expected);
+            expect(size).to.equal(expected.length);
+        });
     });
 });
