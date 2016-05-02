@@ -10,6 +10,6 @@ Dockerfile
 Gruntfile.js
 HWIMO-*
 LICENSE
-migrate.js
+node_modules/
 README.md
 spec/
