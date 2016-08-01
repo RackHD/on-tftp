@@ -104,7 +104,10 @@ describe('tftp server tests', function () {
                 end: sinon.stub()
             };
             server.templates = {
-                test: '<%=switchProfileUri%> <%=switchProfileErrorUri%>'
+                test: {
+                    contents: '<%=switchProfileUri%> <%=switchProfileErrorUri%>',
+                    path: 'testpath'
+                }
             };
 
             server.requestWrapper(req, res);
