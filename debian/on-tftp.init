@@ -1,0 +1,48 @@
+#!/bin/sh
+
+. /lib/lsb/init-functions
+
+### BEGIN INIT INFO
+# Provides:          on-tftp
+# Required-Start:    $syslog $network mongodb rabbitmq-server
+# Required-Stop:     $syslog $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: on-tftp
+# Description:       RackHD on-tftp service
+### END INIT INFO
+
+DESC="on-tftp"
+
+CONFIG=/etc/default/on-tftp
+LOGFILE=/var/log/on-tftp.log
+
+do_start()
+{
+    if [ -f "$CONFIG" ]
+    then
+	cd /var/renasar/on-tftp
+	/usr/bin/nodejs /var/renasar/on-tftp/index.js >> "$LOGFILE" 2>&1 & 
+	log_success_msg "Started on-tftp daemon" 
+    else
+        log_failure_msg "Config file $CONFIG missing, not starting" 
+    fi
+}
+
+
+ACTION=$1
+
+case "$ACTION" in
+
+    start)
+	do_start
+	;;
+    stop | restart | reload | force-reload | status)
+	# unimplemented
+	;;
+    *)
+	logger "Unknown action \"$ACTION\""
+	;;
+esac
+
+exit 0
