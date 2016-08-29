@@ -105,7 +105,7 @@ describe('tftp server tests', function () {
             };
             server.templates = {
                 test: {
-                    contents: '<%=switchProfileUri%> <%=switchProfileErrorUri%>',
+                    contents: '<%=apiServerAddress%> <%=apiServerPort%>',
                     path: 'testpath'
                 }
             };
@@ -118,9 +118,9 @@ describe('tftp server tests', function () {
             var rendered = res.end.firstCall.args[0];
             var size = res.setSize.firstCall.args[0];
 
-            var expected = server.renderContext.switchProfileUri +
+            var expected = server.renderContext.apiServerAddress +
                             ' ' +
-                            server.renderContext.switchProfileErrorUri;
+                            server.renderContext.apiServerPort;
             expect(rendered).to.equal(expected);
             expect(size).to.equal(expected.length);
         });
