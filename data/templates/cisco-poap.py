@@ -1,7 +1,7 @@
 #!/bin/env python
 # Copyright 2016, EMC, Inc.
 # Note, the following checksum currently has to be hand generated and done
-# AFTER the profile has been rendered with the switchProfileUri value until
+# AFTER the profile has been rendered with the apiServerAddress and apiServerPort value until
 # RackHD can taught to handle this kind of render-chain.
 # f=cisco-poap.py ; cat $f | sed '/^#md5sum/d' > $f.md5 ; sed -i "s/^#md5sum=.*/#md5sum=\"$(md5sum $f.md5 | sed 's/ .*//')\"/" $f
 
@@ -19,12 +19,19 @@ try:
 except:
     from cisco import cli
 
+API_SERVER_ADDRESS = '<%=apiServerAddress%>'
+API_SERVER_PORT = '<%=apiServerPort%>'
+
+switch_profile_uri = 'http://{0}:{1}/api/1.1/profiles/switch'.format(API_SERVER_ADDRESS, API_SERVER_PORT)
+switch_profile_error_uri = '{0}/error/'.format(switch_profile_uri)
+cisco_switch_profile_uri = '{0}/cisco'.format(switch_profile_uri)
+
 def download_cisco_script(context):
     # Add switch vendor string as the last URI element as a hint to the
     # HTTP API server
-    poap_log("Downloading script <%=switchProfileUri%>/cisco - vrf %s" % context)
+    poap_log("Downloading script %s - vrf %s" % (cisco_switch_profile_uri, context))
     cisco.vrf.set_global_vrf(context)
-    script = urllib2.urlopen('<%=switchProfileUri%>/cisco').read()
+    script = urllib2.urlopen(cisco_switch_profile_uri).read()
     poap_log("Opening script rackhd_cisco_script.py")
     poap_log(script)
     with open('rackhd_cisco_script.py', 'w') as rackhd_cisco_script:
@@ -75,7 +82,7 @@ except SystemExit as e:
 except Exception as e:
     data = json.dumps({"error": traceback.format_exc()})
     cisco.vrf.set_global_vrf(good_context)
-    req = urllib2.Request('<%=switchProfileErrorUri%>',
+    req = urllib2.Request(switch_profile_error_uri,
                           data, {"Content-Type": "application/json"})
     urllib2.urlopen(req)
     # Don't swallow exceptions otherwise the Cisco switch will think the POAP was a success
