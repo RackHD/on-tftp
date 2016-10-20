@@ -31,7 +31,7 @@ deploy:
   on:
     all_branches: true
     node: "4"
-    condition: "$TRAVIS_TAG =~ ^[0-9.]+$ || -n $TRAVIS_BRANCH"
+    condition: ${TRAVIS_BRANCH} == master || ${TRAVIS_BRANCH} =~ ^release\-([0-9.]+)
 
 notifications:
   slack:
