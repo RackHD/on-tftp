@@ -6,18 +6,19 @@
     },
 
     "version": {
-        "name": "master"
+        "name": "#REVERSION#"
     },
 
     "files":
     [
         {
-            "includePattern": "deb/(.*)", "uploadPattern": "dists/trusty/main/binary-amd64/$1", 
+            "includePattern": "deb/(.*)", 
+            "uploadPattern": "$1", 
             "matrixParams": 
             { 
                 "override": 1, 
                 "deb_distribution": "trusty",
-                "deb_component": "main",
+                "deb_component": "#COMPONENT#",
                 "deb_architecture": "amd64"
             }
         }

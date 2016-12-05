@@ -5,14 +5,6 @@ set -ex
 SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 cd $SCRIPT_DIR/..
 
-# Use the TRAVIS_BRANCH var if defined as travis vm
-# doesn't run the git symbolic-ref command.
-if [ -z "$TRAVIS_BRANCH" ]; then
-   BRANCH=$(git symbolic-ref --short -q HEAD)
-else
-   BRANCH=${TRAVIS_BRANCH}
-fi
-
 # this appends a datestring formatting specifically to be increasing
 # based on the last date of the commit in this branch to provide increasing
 # DCH version numbers for building debian packages for bintray.
@@ -28,7 +20,7 @@ if [ -z "$DEBEMAIL" ]; then
 fi
 
 if [ -z "$DEBBRANCH" ]; then
-        export DEBBRANCH=`echo "${BRANCH}-${DATESTRING}" | sed 's/[\/\_]/-/g'`
+        export DEBBRANCH=$(./extra/gen-debbranch.sh)
 fi
 
 if [ -z "$DEBPKGVER" ]; then
@@ -36,7 +28,15 @@ if [ -z "$DEBPKGVER" ]; then
 fi
 
 if [ -z "$DCHOPTS" ]; then
-        export DCHOPTS="-l ${DEBBRANCH} -u low ${DEBPKGVER}"
+        if [[ $DEBBRANCH =~ ^[0-9.]+$ ]]; then
+                #Use "dch -r" do release, "UNRELEASED" in changelog will be set to "unstable"
+                #or any other predefined distribution, the timestamp will be updated too.
+                export DCHOPTS="-r \"\""
+        else
+                #Use "dch -v -u -b" do ci-builds
+                export DCHOPTS="-v ${DEBBRANCH} -u low ${DEBPKGVER} -b"
+        fi
+        
 fi
 
 echo "DEBDIR:       $DEBDIR"
