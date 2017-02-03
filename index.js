@@ -15,7 +15,7 @@ var di = require('di'),
     logger = injector.get('Logger').initialize('Tftp'),
     tftp = injector.get('Tftp');
 
-tftp.start()
+//tftp.start()
 .catch(function(err) {
     logger.critical('Failure starting TFTP service' + err.stack);
     process.nextTick(function(){
