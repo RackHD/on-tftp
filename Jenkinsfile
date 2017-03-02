@@ -1,3 +1,5 @@
 node ('regression'){
-  sh 'ls' 
+  dir('on-tftp'){
+  sh 'ls'
+  }
 }
