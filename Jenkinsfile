@@ -1,5 +1,5 @@
 node ('regression'){
-  subdir('on-tftp'){
+  dir('on-tftp'){
     sh 'npm test'
   }
 }
