@@ -22,7 +22,7 @@ except:
 API_SERVER_ADDRESS = '<%=apiServerAddress%>'
 API_SERVER_PORT = '<%=apiServerPort%>'
 
-switch_profile_uri = 'http://{0}:{1}/api/1.1/profiles/switch'.format(API_SERVER_ADDRESS, API_SERVER_PORT)
+switch_profile_uri = 'http://{0}:{1}/api/current/profiles/switch'.format(API_SERVER_ADDRESS, API_SERVER_PORT)
 switch_profile_error_uri = '{0}/error/'.format(switch_profile_uri)
 cisco_switch_profile_uri = '{0}/cisco'.format(switch_profile_uri)
 
