@@ -20,7 +20,6 @@ services:
 
   dhcp: # 67/udp
     image: rackhd/isc-dhcp-server
-    build: "./dhcp"
     network_mode: "host"
     privileged: true
     volumes:
@@ -35,21 +34,7 @@ services:
     volumes:
       - "./files/mount:/RackHD/files"
 
-  # test:
-  #   build: "../test"
-  #   image: "rackhd/test"
-  #   network_mode: "host"
-  #   privileged: true
-
-  # RackHD services
-
-  #  core:
-  #    build: "../on-core"
-  #    image: rackhd/on-core:latest
-  #    command: "/bin/echo \"exit\""
-
   dhcp-proxy: # 68/udp, 4011
-    build: "../on-dhcp-proxy"
     depends_on:
       - dhcp
       - mongo
@@ -61,7 +46,6 @@ services:
       - "./monorail:/opt/monorail"
 
   http: # 9090, 9080
-    build: "../on-http"
     depends_on:
       - files
       - mongo
@@ -75,7 +59,6 @@ services:
 
 
   syslog: # 514/udp
-    build: "../on-syslog"
     depends_on:
       - mongo
       - rabbitmq
@@ -86,7 +69,6 @@ services:
       - "./monorail:/opt/monorail"
 
   taskgraph:
-    build: "../on-taskgraph"
     depends_on:
       - dhcp
       - mongo
@@ -105,7 +87,7 @@ services:
       - mongo
       - rabbitmq
       - syslog
-    #image: rackhd/on-tftp:devel
+    image: rackhd/on-tftp:devel
     network_mode: "host"
     privileged: true
     volumes:
