@@ -2,7 +2,8 @@
 platform: linux
 image_resource:
   type: docker-image
-  source: {repository: ubuntu}
-run:
-  path: echo
-  args: ["Hello", "world!"]
+  source: {repository: docker}
+inputs:
+  - name: source-code
+run: 
+  path: source-code/func-test/build.sh
