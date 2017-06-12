@@ -2,8 +2,13 @@
 platform: linux
 image_resource:
   type: docker-image
-  source: {repository: docker}
+  source: 
+    repository: docker
+    tag: dind
 inputs:
   - name: source-code
 run: 
   path: source-code/func-test/build.sh
+#run:
+#  path: echo
+#  args: ["Hello, world!"]
