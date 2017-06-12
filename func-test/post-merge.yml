@@ -9,4 +9,4 @@ jobs:
         source: {repository: ubuntu}
       run:
         path: echo
-        args: ["Hello, "world", "world!"]
+        args: ["Hello", "world", "world!"]
