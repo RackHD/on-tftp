@@ -5,7 +5,7 @@
 # debian packages expected...
 apt-get update
 apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
-# apt-get install nodejs nodejs-legacy npm
+#apt-get install -y nodejs nodejs-legacy npm
 
 # Input (environment variables):
 # * PKG_VERSION: The version of debian package, 
