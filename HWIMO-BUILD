@@ -14,7 +14,7 @@ apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
 
 set -e
 set -x
-PKG_VERSION=devel_1.2.3
+PKG_VERSION=1.2.3.devel
 rm -rf packagebuild
 git clone . packagebuild
 pushd packagebuild
