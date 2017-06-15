@@ -3,8 +3,8 @@
 # Copyright 2015, 2016, EMC, Inc.
 
 # debian packages expected...
-apt-get update
-apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
+#apt-get update
+#apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
 #apt-get install -y nodejs nodejs-legacy npm
 
 # Input (environment variables):
