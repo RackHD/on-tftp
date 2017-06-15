@@ -51,4 +51,7 @@ else
 fi
 
 debuild --no-lintian --no-tgz-check -us -uc
+ls
 popd
+echo out
+ls
