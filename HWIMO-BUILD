@@ -14,7 +14,7 @@ apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
 
 set -e
 set -x
-
+PKG_VERSION=devel_1.2.3
 rm -rf packagebuild
 git clone . packagebuild
 pushd packagebuild
@@ -32,7 +32,7 @@ export DEBFULLNAME="The HWIMO Robots"
 # compute it as below:
 if [ -z "$PKG_VERSION" ];then
     GIT_COMMIT_DATE=$(git show -s --pretty="format:%ci")
-    DATE_STRING=$(date .d "$GIT_COMMIT_DATE" .u +"%Y%m%dUTC")
+    DATE_STRING=$(date -d "$GIT_COMMIT_DATE" -u +"%Y%m%dUTC")
 
     GIT_COMMIT_HASH=$(git show -s --pretty="format:%h")
 
