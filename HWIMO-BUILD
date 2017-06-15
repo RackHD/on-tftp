@@ -11,7 +11,7 @@ apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
 # * PKG_VERSION: The version of debian package, 
 #                such as: 1.3.1 (official release);
 #
-#PKG_VERSION=9.9.9
+PKG_VERSION=latest
 set -e
 set -x
 
