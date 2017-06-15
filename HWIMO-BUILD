@@ -49,7 +49,7 @@ else
     COMMIT_STR=`git log -n 1 --oneline`
     dch -v $PKG_VERSION -u low $COMMIT_STR -b -m
 fi
-
+echo $PKG_VERSION
 debuild --no-lintian --no-tgz-check -us -uc
 #ls
 popd
