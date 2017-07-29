@@ -3,8 +3,9 @@
 # Copyright 2015, 2016, EMC, Inc.
 
 # debian packages expected...
-# apt-get install git pbuilder dh-make ubuntu-dev-tools devscripts
-# apt-get install nodejs nodejs-legacy npm
+#apt-get update
+#apt-get install -y git pbuilder dh-make ubuntu-dev-tools devscripts
+#apt-get install -y nodejs nodejs-legacy npm
 
 # Input (environment variables):
 # * PKG_VERSION: The version of debian package, 
@@ -13,7 +14,7 @@
 
 set -e
 set -x
-
+PKG_VERSION=2.8.0
 rm -rf packagebuild
 git clone . packagebuild
 pushd packagebuild
@@ -48,6 +49,11 @@ else
     COMMIT_STR=`git log -n 1 --oneline`
     dch -v $PKG_VERSION -u low $COMMIT_STR -b -m
 fi
-
+echo "ya habiliiii"
+echo $PKG_VERSION
+echo "ya habiliiii"
 debuild --no-lintian --no-tgz-check -us -uc
+#ls
 popd
+#echo out
+#ls
