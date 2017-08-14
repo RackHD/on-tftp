@@ -16,5 +16,5 @@ outputs:
 - name:  build 
 
 run:
-  path: "alpha/build_deb.sh"
+  path: "alpha/build_docker.sh"
   dir: "on-tftp"

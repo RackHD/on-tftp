@@ -5,8 +5,8 @@ if [ "${VERIFY_DEP}" == "true" ]; then
     git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pull/*
     git fetch
     git checkout $COMMIT
-    export ONCORE_TAG=(<../on-core-docker/digest)
+    export ONCORE_TAG=$(<../on-core-docker/digest)
     sed -i "s/^FROM.*/FROM $REGISTRY\/${REPO_OWNER}\/on-core@${ONCORE_TAG}/" ./Dockerfile
 fi
 cat Dockerfile
-cp .* ../build
+cp -rf * ../build
