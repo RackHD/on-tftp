@@ -1,0 +1,8 @@
+---
+platform: linux
+
+inputs:
+- name:  on-tftp
+run:
+  path: "alpha/unittest.sh"
+  dir: "on-tftp"
