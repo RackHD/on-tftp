@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "di": "git+https://github.com/RackHD/di.js.git",
+    "di": "git+https://github.com/mcgG/di.js.git",
     "lodash": "^2.4.1",
     "tftp": "^0.1.2",
     "on-core": "git+https://github.com/mcgG/on-core.git"
