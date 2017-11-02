@@ -1,6 +1,7 @@
 {
+  "//": "Copyright 2017, Dell EMC, Inc.",
   "name": "on-tftp",
-  "version": "2.27.0",
+  "version": "2.29.0",
   "description": "OnRack Tftp Server",
   "//": "Copyright © 2017 Dell Inc. or its subsidiaries. All Rights Reserved.",
   "main": "index.js",
